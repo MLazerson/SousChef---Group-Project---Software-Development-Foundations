@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<body>
+{% block head %}
+<head>
+    <meta charset= "UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='CSS/styles.css') }}"/>
+</head>
+{% endblock %}
+
+{% block header %}
+<h1>Recipe Instructions</h1>
+{% endblock %}
+
+{% block content %}
+  
+<div class="listIngr">
+    <h2>{{ title }}</h2>
+    <img src='{{ image }}'>
+    <p>Cook Time = {{ time }} minutes</p>
+    <p>Servings = {{ servings }}</p>
+    <h2>Instructions</h2>
+    <p>{{ instructions }}</p>
+    <p><a href="{{ link }}">Original Link</a></p>
+    
+</div>
+
+<form method="POST">
+    <div class="rate">
+        {% if rating == '5' %}
+            <input type="radio" id="star5" name="rate" value="5" checked='checked'/>
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+        {% elif rating == '4' %}
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" checked='checked'/>
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+        {% elif rating == '3' %}
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" checked='checked'/>
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+        {% elif rating == '2' %}
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" checked='checked'/>
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+        {% elif rating == '1' %}
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" checked='checked'/>
+            <label for="star1" title="text">1 star</label>
+        {% else %}
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+        {% endif %}
+    </div>
+    <br>
+    <div class="notepad">
+        <input type="text" name="notepad" id="notepad1" value="{{ notes }}">
+    </div>
+    <br>
+    <div>
+        <input type="submit" value="Save">
+    </div>
+</form>
+
+{% endblock %}
+</body>
+</html>

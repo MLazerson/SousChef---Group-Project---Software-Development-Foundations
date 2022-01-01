@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% block head %}
+  <style type="text/css">
+    h1 {text-align: center; font-size: 30px; font-family: Copperplate, fantasy;}
+    body { background-color: #ccccff;}
+  </style>
+  {% endblock %}
+</head>
+<h1><center> ~ Sous Chef ~ </center></h1>
+
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
+</html>

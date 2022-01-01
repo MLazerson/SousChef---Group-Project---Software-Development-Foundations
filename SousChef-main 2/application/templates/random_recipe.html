@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+body { background-color: #ccccff;}
+
+.listIngr {
+  border: 5px outset purple;
+  background-color: lightgrey;
+  text-align: center;
+  overflow: scroll;
+}
+</style>
+{% block header %}
+<h1>Recipes</h1>
+{% endblock %}
+
+{% block content %}
+  {% for recipe in recipes %}
+    <div class="listIngr">
+      <a href="{{ url_for("enter_ingredients.ran_recipe", selected_id=recipe["id"]) }}">{{ recipe['title'] }}</p>
+      <img src='{{ recipe['image'] }}'>
+    </div>
+    {% endfor %}
+{% endblock %}
+
+</body>
+</html>

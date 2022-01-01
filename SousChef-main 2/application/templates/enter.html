@@ -1,0 +1,72 @@
+<html>
+<head>
+  <style type="text/css">
+    h1 {font-size: 30px;}
+    body { background-color: #ccccff;}
+  </style>
+</head>
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Enter Ingredients! What's in your kitchen?{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="ingredient">Ingredients List</label>
+    <input name="ingredient" id="ingredient"><br>
+    <label for="sort">Sort By:</label>
+    <input name="sort" id="sort"><br>
+    <table>
+      <tr>
+        <th>Intolerances:</th>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="intolerance1" name="intolerance1" value="Dairy">
+          <label for="intolerance1"> Dairy</label><br></td>
+        <td><input type="checkbox" id="intolerance2" name="intolerance2" value="Peanut">
+          <label for="intolerance2"> Peanut</label><br></td>
+        <td><input type="checkbox" id="intolerance3" name="intolerance3" value="Soy">
+          <label for="intolerance3"> Soy</label><br></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="intolerance4" name="intolerance4" value="Egg">
+          <label for="intolerance4"> Egg</label><br></td>
+        <td><input type="checkbox" id="intolerance5" name="intolerance5" value="Seafood">
+          <label for="intolerance5"> Seafood</label><br></td>
+        <td><input type="checkbox" id="intolerance6" name="intolerance6" value="Sulfite">
+          <label for="intolerance6"> Sulfite</label><br></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="intolerance7" name="intolerance7" value="Gluten">
+          <label for="intolerance7"> Gluten</label><br></td>
+        <td><input type="checkbox" id="intolerance8" name="intolerance8" value="Sesame">
+          <label for="intolerance8"> Sesame</label><br></td>
+        <td><input type="checkbox" id="intolerance9" name="intolerance9" value="Tree Nut">
+          <label for="intolerance9"> Tree Nut</label><br></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="intolerance10" name="intolerance10" value="Grain">
+          <label for="intolerance10"> Grain</label><br></td>
+        <td><input type="checkbox" id="intolerance11" name="intolerance11" value="Shellfish">
+          <label for="intolerance11"> Shellfish</label><br></td>
+        <td><input type="checkbox" id="intolerance12" name="intolerance12" value="Wheat">
+          <label for="intolerance12"> Wheat</label><br></td>
+      </tr>
+    </table> 
+    <input type="submit" value="Search">
+  </form>
+
+  {% if saved_ing %}
+    <form method="post">
+      <h1>Saved Ingredients:</h1>
+        
+      {% for ing in saved_ing %}
+        <li>{{ ing['ing_name'] }}</li>
+      {% endfor %}
+
+    </form>
+  {% endif %}
+
+{% endblock %}
+</html>
